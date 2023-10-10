@@ -29,7 +29,7 @@
               "soundSystem": "sound_system",
               "animations": [
                 {"code": "wound_up", "firstVariant": 1, "lastVariant": 3, "duration": 100, "sounds": []},
-                {"code": "go_off", "firstVariant": 3, "lastVariant": 1, "duration": 100, "sounds": []}
+                {"code": "go_off", "firstVariant": 3, "lastVariant": 1, "duration": 100, "sounds": [{"variant": 1, "code": "go_off"}]}
               ]
             }
           }
@@ -55,7 +55,7 @@
               "input": ["Set off"],
               "inputsToIntercept": [],
               "states": [{"initial": "woundup_state", "final": "initial_state"}],
-              "systems": [{"code": "sound_system", "attributes": {"code": "go_off"}}, {"code": "animation_system", "attributes": {"code": "go_off"}}]
+              "systems": [{"code": "animation_system", "attributes": {"code": "go_off"}}]
             }
           }
         ]
