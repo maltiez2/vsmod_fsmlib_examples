@@ -1,0 +1,81 @@
+﻿{
+  "code": "timer-first",
+  "class": "Item",
+  "creativeinventory": {"fsmexamples": ["*"]},
+  "behaviors": [
+    {
+      "name": "FiniteStateMachine",
+      "properties": {
+        "initialState": "initial_state",
+        "inputs": [
+			{"code": "Make sound", "class": "Hotkey", "attributes": {"key": "R"}}
+		],
+        "systems": [
+          {
+            "code": "sound_system",
+            "class": "Sound",
+            "attributes": {
+              "sounds": [
+                {
+                  "code": "go_off",
+                  "volume": 1,
+                  "range": 8,
+                  "location": "game:sounds/player/projectilehit"
+                }
+              ]
+            }
+          }
+        ],
+        "operations": [
+          {
+            "code": "make_sound",
+            "class": "Instant",
+            "attributes": {
+              "input": ["Make sound"],
+              "inputsToIntercept": [],
+              "states": [
+			    {"initial": "initial_state", "final": "initial_state"}
+			  ],
+              "systems": [
+			    {"code": "sound_system", "attributes": {"code": "go_off"}}
+			  ]
+            }
+          }
+        ]
+      }
+    }
+  ],
+
+  "shape": {
+    "base": "timer-initial",
+    "alternates": [
+      {"base": "timer-halfway"},
+      {"base": "timer-woundup"}
+    ]
+  },
+  "attributes": {},
+  "fpHandTransform": {
+    "translation": {"x": 0, "y": 0, "z": 0},
+    "rotation": {"x": 35, "y": 0, "z": 10},
+    "origin": {"x": -1, "y": 0, "z": 0.5},
+    "scale": 2.42
+  },
+  "guiTransform": {
+    "translation": {"x": 0, "y": 0, "z": 0},
+    "rotation": {"x":128, "y": 180, "z": 0},
+    "origin": {"x": 0.17, "y": 0, "z": 0.1},
+    "scale": 4.08
+  },
+  "groundTransform": {
+    "translation": {"x": 0, "y": 0, "z": 0},
+    "rotation": {"x": 0, "y": 0, "z": 0},
+    "origin": {"x": 0.5, "y": 0, "z": 0.5},
+    "scale": 4.8
+  },
+  "tpHandTransform": {
+    "translation": {"x": 0, "y": 0, "z": 0},
+    "rotation": {"x": 0, "y": -90, "z": 0},
+    "origin": {"x": -0.15, "y": 0, "z": 0.2},
+    "scale": 0.54
+  }
+}

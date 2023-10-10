@@ -1,0 +1,75 @@
+{
+	"editor": {
+		"allAngles": false,
+		"entityTextureMode": false
+	},
+	"textureWidth": 16,
+	"textureHeight": 16,
+	"textureSizes": {
+	},
+	"textures": {
+		"brass1": "game:block/metal/sheet/brass1",
+		"steel1": "game:block/metal/sheet/steel1"
+	},
+	"elements": [
+		{
+			"name": "Cube2",
+			"from": [ 0.0, 0.0, 0.0 ],
+			"to": [ 5.0, 1.0, 5.0 ],
+			"faces": {
+				"north": { "texture": "#brass1", "uv": [ 5.5, 6.0, 10.5, 7.0 ] },
+				"east": { "texture": "#brass1", "uv": [ 5.5, 8.5, 10.5, 9.5 ] },
+				"south": { "texture": "#brass1", "uv": [ 6.0, 5.0, 11.0, 6.0 ] },
+				"west": { "texture": "#brass1", "uv": [ 7.5, 5.5, 12.5, 6.5 ] },
+				"up": { "texture": "#brass1", "uv": [ 6.0, 4.5, 11.0, 9.5 ] },
+				"down": { "texture": "#brass1", "uv": [ 6.0, 6.5, 11.0, 11.5 ] }
+			},
+			"children": [
+				{
+					"name": "Cube3",
+					"from": [ 2.0, 0.0, -0.5 ],
+					"to": [ 3.0, 2.0, 0.5 ],
+					"rotationOrigin": [ 2.0, 0.0, -0.5 ],
+					"faces": {
+						"north": { "texture": "#steel1", "uv": [ 0.0, 0.0, 1.0, 2.0 ] },
+						"east": { "texture": "#steel1", "uv": [ 0.0, 0.0, 1.0, 2.0 ] },
+						"south": { "texture": "#steel1", "uv": [ 0.0, 0.0, 1.0, 2.0 ] },
+						"west": { "texture": "#steel1", "uv": [ 0.0, 0.0, 1.0, 2.0 ] },
+						"up": { "texture": "#steel1", "uv": [ 0.0, 0.0, 1.0, 1.0 ] },
+						"down": { "texture": "#steel1", "uv": [ 0.0, 0.0, 1.0, 1.0 ] }
+					}
+				},
+				{
+					"name": "Cube4",
+					"from": [ 0.5, 1.0, 0.5 ],
+					"to": [ 4.5, 1.5, 4.5 ],
+					"rotationOrigin": [ 2.5, 1.0, 2.5 ],
+					"rotationY": -90.0,
+					"faces": {
+						"north": { "texture": "#steel1", "uv": [ 0.0, 0.0, 4.0, 0.5 ] },
+						"east": { "texture": "#steel1", "uv": [ 0.0, 0.0, 4.0, 0.5 ] },
+						"south": { "texture": "#steel1", "uv": [ 0.0, 0.0, 4.0, 0.5 ] },
+						"west": { "texture": "#steel1", "uv": [ 0.0, 0.0, 4.0, 0.5 ] },
+						"up": { "texture": "#steel1", "uv": [ 0.0, 0.0, 4.0, 4.0 ] },
+						"down": { "texture": "#steel1", "uv": [ 0.0, 0.0, 4.0, 4.0 ] }
+					},
+					"children": [
+						{
+							"name": "Cube5",
+							"from": [ 1.4, 0.0, 0.0 ],
+							"to": [ 2.4, 0.7, 1.0 ],
+							"rotationOrigin": [ 1.4, 0.0, 0.0 ],
+							"faces": {
+								"north": { "texture": "#brass1", "uv": [ 0.0, 0.0, 1.0, 0.5 ] },
+								"east": { "texture": "#brass1", "uv": [ 0.0, 0.0, 1.0, 0.5 ] },
+								"south": { "texture": "#brass1", "uv": [ 0.0, 0.0, 1.0, 0.5 ] },
+								"west": { "texture": "#brass1", "uv": [ 0.0, 0.0, 1.0, 0.5 ] },
+								"up": { "texture": "#brass1", "uv": [ 0.0, 0.0, 1.0, 1.0 ] },
+								"down": { "texture": "#brass1", "uv": [ 0.0, 0.0, 1.0, 1.0 ] }
+							}
+						}
+					]
+				}
+			]
+		}
+	]}
