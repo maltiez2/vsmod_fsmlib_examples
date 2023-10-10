@@ -20,7 +20,7 @@
             "code": "make_sound",
             "class": "Instant",
             "attributes": {
-              "input": ["Make sound"],
+              "input": "Make sound",
               "inputsToIntercept": [],
               "states": [{"initial": "initial_state", "final": "initial_state"}],
               "systems": [{"code": "sound_system", "attributes": {"code": "go_off"}}]
