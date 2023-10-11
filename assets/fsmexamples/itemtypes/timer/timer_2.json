@@ -17,8 +17,18 @@
             "class": "Sound",
             "attributes": {
               "sounds": [
-                {"code": "go_off", "volume": 1, "range": 8, "location": "game:sounds/player/projectilehit"},
-                {"code": "wound_up", "volume": 1, "range": 8, "location": "game:sounds/toggleswitch"}
+                {
+                  "code": "go_off",
+                  "volume": 1,
+                  "range": 8,
+                  "location": "game:sounds/player/projectilehit"
+                },
+                {
+                  "code": "wound_up",
+                  "volume": 1,
+                  "range": 8,
+                  "location": "game:sounds/toggleswitch"
+                }
               ]
             }
           }
@@ -46,7 +56,10 @@
       }
     }
   ],
-  "shape": {"base": "timer-initial", "alternates": [{"base": "timer-halfway"}, {"base": "timer-woundup"}]},
+  "shape": {
+    "base": "timer-initial",
+    "alternates": [{"base": "timer-halfway"}, {"base": "timer-woundup"}]
+  },
   "attributes": {},
   "fpHandTransform": {
     "translation": {"x": 0, "y": 0, "z": 0},

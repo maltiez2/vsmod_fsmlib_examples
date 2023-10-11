@@ -4,11 +4,11 @@
   "name": "FSMlib Examples",
   "authors": ["Maltiez"],
   "description": "Examples mod for FSMlib",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "Translation": [],
   "dependencies": {
     "game": "1.18.8",
     "survival": "1.18.8",
-    "fsmlib": "0.1.1"
+    "fsmlib": "0.1.2"
   }
 }

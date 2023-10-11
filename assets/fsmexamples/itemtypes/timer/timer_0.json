@@ -1,9 +1,12 @@
 ﻿{
-  "code": "timer-first",
+  "code": "timer-zero",
   "class": "Item",
   "creativeinventory": {"fsmexamples": ["*"]},
   "behaviors": [],
-  "shape": {"base": "timer-initial", "alternates": [{"base": "timer-halfway"}, {"base": "timer-woundup"}]},
+  "shape": {
+    "base": "timer-initial",
+    "alternates": [{"base": "timer-halfway"}, {"base": "timer-woundup"}]
+  },
   "attributes": {},
   "fpHandTransform": {
     "translation": {"x": 0, "y": 0, "z": 0},

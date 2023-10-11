@@ -12,7 +12,16 @@
           {
             "code": "sound_system",
             "class": "Sound",
-            "attributes": {"sounds": [{"code": "go_off", "volume": 1, "range": 8, "location": "game:sounds/player/projectilehit"}]}
+            "attributes": {
+              "sounds": [
+                {
+                  "code": "go_off",
+                  "volume": 1,
+                  "range": 8,
+                  "location": "game:sounds/player/projectilehit"
+                }
+              ]
+            }
           }
         ],
         "operations": [
@@ -30,7 +39,10 @@
       }
     }
   ],
-  "shape": {"base": "timer-initial", "alternates": [{"base": "timer-halfway"}, {"base": "timer-woundup"}]},
+  "shape": {
+    "base": "timer-initial",
+    "alternates": [{"base": "timer-halfway"}, {"base": "timer-woundup"}]
+  },
   "attributes": {},
   "fpHandTransform": {
     "translation": {"x": 0, "y": 0, "z": 0},

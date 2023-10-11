@@ -17,8 +17,18 @@
             "class": "Sound",
             "attributes": {
               "sounds": [
-                {"code": "go_off", "volume": 1, "range": 8, "location": "game:sounds/player/projectilehit"},
-                {"code": "wound_up", "volume": 1, "range": 8, "location": "game:sounds/toggleswitch"}
+                {
+                  "code": "go_off",
+                  "volume": 1,
+                  "range": 8,
+                  "location": "game:sounds/player/projectilehit"
+                },
+                {
+                  "code": "wound_up",
+                  "volume": 1,
+                  "range": 8,
+                  "location": "game:sounds/toggleswitch"
+                }
               ]
             }
           },
@@ -28,8 +38,20 @@
             "attributes": {
               "soundSystem": "sound_system",
               "animations": [
-                {"code": "wound_up", "firstVariant": 1, "lastVariant": 3, "duration": 100, "sounds": []},
-                {"code": "go_off", "firstVariant": 3, "lastVariant": 1, "duration": 100, "sounds": [{"variant": 1, "code": "go_off"}]}
+                {
+                  "code": "wound_up",
+                  "firstVariant": 1,
+                  "lastVariant": 3,
+                  "duration": 100,
+                  "sounds": []
+                },
+                {
+                  "code": "go_off",
+                  "firstVariant": 3,
+                  "lastVariant": 1,
+                  "duration": 100,
+                  "sounds": [{"variant": 1, "code": "go_off"}]
+                }
               ]
             }
           }
@@ -62,7 +84,10 @@
       }
     }
   ],
-  "shape": {"base": "timer-initial", "alternates": [{"base": "timer-halfway"}, {"base": "timer-woundup"}]},
+  "shape": {
+    "base": "timer-initial",
+    "alternates": [{"base": "timer-halfway"}, {"base": "timer-woundup"}]
+  },
   "attributes": {},
   "fpHandTransform": {
     "translation": {"x": 0, "y": 0, "z": 0},

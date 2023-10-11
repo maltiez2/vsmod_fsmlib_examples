@@ -22,8 +22,18 @@
             "class": "Sound",
             "attributes": {
               "sounds": [
-                {"code": "go_off", "volume": 1, "range": 8, "location": "game:sounds/player/projectilehit"},
-                {"code": "wound_up", "volume": 1, "range": 8, "location": "game:sounds/toggleswitch"},
+                {
+                  "code": "go_off",
+                  "volume": 1,
+                  "range": 8,
+                  "location": "game:sounds/player/projectilehit"
+                },
+                {
+                  "code": "wound_up",
+                  "volume": 1,
+                  "range": 8,
+                  "location": "game:sounds/toggleswitch"
+                },
                 {"code": "tick", "volume": 1, "range": 8, "location": "game:sounds/tick"}
               ]
             }
@@ -34,15 +44,31 @@
             "attributes": {
               "soundSystem": "sound_system",
               "animations": [
-                {"code": "wound_up", "firstVariant": 1, "lastVariant": 3, "duration": 2000, "sounds": []},
+                {
+                  "code": "wound_up",
+                  "firstVariant": 1,
+                  "lastVariant": 3,
+                  "duration": 2000,
+                  "sounds": []
+                },
                 {
                   "code": "go_off",
                   "firstVariant": 3,
                   "lastVariant": 1,
                   "duration": 2000,
-                  "sounds": [{"variant": 1, "code": "tick"}, {"variant": 2, "code": "tick"}, {"variant": 3, "code": "tick"}]
+                  "sounds": [
+                    {"variant": 1, "code": "tick"},
+                    {"variant": 2, "code": "tick"},
+                    {"variant": 3, "code": "tick"}
+                  ]
                 },
-                {"code": "set_off", "firstVariant": 1, "lastVariant": 1, "duration": 0, "sounds": []}
+                {
+                  "code": "set_off",
+                  "firstVariant": 1,
+                  "lastVariant": 1,
+                  "duration": 0,
+                  "sounds": []
+                }
               ]
             }
           }
@@ -55,7 +81,9 @@
               "delay_ms": 2000,
               "inputsToIntercept": ["item_dropped_prevent", "slot_change_prevent"],
               "inputsToHandle": {"initial": ["R_down"], "cancel": ["R_up"]},
-              "states": [{"initial": "initial_state", "cancel": "initial_state", "final": "woundup_state"}],
+              "states": [
+                {"initial": "initial_state", "cancel": "initial_state", "final": "woundup_state"}
+              ],
               "systems": {
                 "initial": [{"code": "animation_system", "attributes": {"code": "wound_up"}}],
                 "cancel": [{"code": "animation_system", "attributes": {"code": "set_off"}}],
@@ -70,7 +98,9 @@
               "delay_ms": 2000,
               "inputsToIntercept": [],
               "inputsToHandle": {"initial": ["Set off"], "cancel": ["item_dropped", "slot_change"]},
-              "states": [{"initial": "woundup_state", "cancel": "initial_state", "final": "initial_state"}],
+              "states": [
+                {"initial": "woundup_state", "cancel": "initial_state", "final": "initial_state"}
+              ],
               "systems": {
                 "initial": [{"code": "animation_system", "attributes": {"code": "go_off"}}],
                 "cancel": [{"code": "animation_system", "attributes": {"code": "set_off"}}],
@@ -82,7 +112,10 @@
       }
     }
   ],
-  "shape": {"base": "timer-initial", "alternates": [{"base": "timer-halfway"}, {"base": "timer-woundup"}]},
+  "shape": {
+    "base": "timer-initial",
+    "alternates": [{"base": "timer-halfway"}, {"base": "timer-woundup"}]
+  },
   "attributes": {},
   "fpHandTransform": {
     "translation": {"x": 0, "y": 0, "z": 0},

@@ -1,0 +1,170 @@
+﻿{
+  "code": "prospectingpickaxe",
+  "storageFlags": 5,
+  "classByType": {"*-prospecting-*": "ItemProspectingPick", "*-pickaxe-*": "Item"},
+  "attributes": {
+    "handbook": {"groupBy": ["prospectingpickaxe-*"]},
+    "toolrackTransform": {
+      "rotation": {"y": 1, "z": -1},
+      "translation": {"x": -0.3, "y": 0.6},
+      "scale": 1.25
+    },
+    "groundStorageTransform": {
+      "translation": {"x": 0, "y": 0.1, "z": -0.085},
+      "rotation": {"x": 26, "y": 88, "z": -87},
+      "scale": 0.88
+    },
+    "slotRefillIdentifierByType": {"*-prospecting-*": "propick", "*-pickaxe-*": "pickaxe"}
+  },
+  "behaviors": [
+    {
+      "name": "FiniteStateMachine",
+      "properties": {
+        "initialState": "pickaxe",
+        "inputs": [{"code": "Chanhe tool type", "class": "Hotkey", "attributes": {"key": "R"}}],
+        "systems": [{"code": "mode_system", "class": "ChangeGroup", "attributes": {}}],
+        "operations": [
+          {
+            "code": "change_mode_to_prospecting",
+            "class": "Instant",
+            "attributes": {
+              "input": "Chanhe tool type",
+              "inputsToIntercept": [],
+              "states": [{"initial": "pickaxe", "final": "prospecting"}],
+              "systems": [
+                {"code": "mode_system", "attributes": {"group": "tooltype", "value": "prospecting"}}
+              ]
+            }
+          },
+          {
+            "code": "change_mode_to_pickaxe",
+            "class": "Instant",
+            "attributes": {
+              "input": "Chanhe tool type",
+              "inputsToIntercept": [],
+              "states": [{"initial": "prospecting", "final": "pickaxe"}],
+              "systems": [
+                {"code": "mode_system", "attributes": {"group": "tooltype", "value": "pickaxe"}}
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "GroundStorable",
+      "properties": {
+        "layout": "WallHalves",
+        "wallOffY": 1,
+        "sprintKey": true,
+        "selectionBox": {"x1": 0, "y1": 0, "z1": 0, "x2": 1, "y2": 0.1, "z2": 1},
+        "collisionBox": {"x1": 0, "y1": 0, "z1": 0, "x2": 0, "y2": 0, "z2": 0}
+      }
+    }
+  ],
+  "variantgroups": [
+    {"code": "tooltype", "states": ["pickaxe", "prospecting"]},
+    {
+      "code": "metal",
+      "states": [
+        "copper",
+        "tinbronze",
+        "bismuthbronze",
+        "blackbronze",
+        "gold",
+        "silver",
+        "iron",
+        "meteoriciron",
+        "steel"
+      ]
+    }
+  ],
+  "tool": "pickaxe",
+  "damagedby": ["blockbreaking", "attacking"],
+  "shape": {"base": "prospectingpickaxe-{tooltype}"},
+  "heldTpHitAnimation": "smithing",
+  "texturesByType": {
+    "*": {
+      "metal": {"base": "game:block/metal/ingot/{metal}"},
+      "handle": {"base": "game:item/tool/material/wood"}
+    }
+  },
+  "tooltierbytype": {
+    "*-stone": 1,
+    "*-copper": 2,
+    "*-gold": 2,
+    "*-silver": 2,
+    "*-bismuthbronze": 3,
+    "*-tinbronze": 3,
+    "*-blackbronze": 3,
+    "*-iron": 4,
+    "*-meteoriciron": 4,
+    "*-steel": 5
+  },
+  "miningspeedbytype": {
+    "*-prospecting-copper": {"stone": 2.5, "ore": 2.5},
+    "*-prospecting-bismuthbronze": {"stone": 3, "ore": 3},
+    "*-prospecting-tinbronze": {"stone": 3.3, "ore": 3.3},
+    "*-prospecting-gold": {"stone": 2.7, "ore": 2.7},
+    "*-prospecting-silver": {"stone": 2.7, "ore": 2.7},
+    "*-prospecting-blackbronze": {"stone": 3.5, "ore": 3.5},
+    "*-prospecting-iron": {"stone": 4.5, "ore": 4.5, "metal": 4.5},
+    "*-prospecting-meteoriciron": {"stone": 4.75, "ore": 4.75, "metal": 4.75},
+    "*-prospecting-steel": {"stone": 5.5, "ore": 5.5},
+    "*-pickaxe-copper": {"ceramic": 1.5, "stone": 4, "ore": 4, "metal": 4, "ice": 1.75},
+    "*-pickaxe-bismuthbronze": {"ceramic": 2, "stone": 5.5, "ore": 5.5, "metal": 5.5, "ice": 2.2},
+    "*-pickaxe-tinbronze": {"ceramic": 2.25, "stone": 6, "ore": 6, "metal": 6, "ice": 2.3},
+    "*-pickaxe-gold": {"ceramic": 1.75, "stone": 5, "ore": 5, "metal": 5, "ice": 2},
+    "*-pickaxe-silver": {"ceramic": 1.75, "stone": 5, "ore": 5, "metal": 5, "ice": 2},
+    "*-pickaxe-blackbronze": {"ceramic": 2.5, "stone": 6.5, "ore": 6.5, "metal": 6.5, "ice": 2.8},
+    "*-pickaxe-iron": {"ceramic": 2.75, "stone": 7.5, "ore": 7.5, "metal": 7.5, "ice": 3.5},
+    "*-pickaxe-meteoriciron": {"ceramic": 3, "stone": 8, "ore": 8, "metal": 8, "ice": 3.75},
+    "*-pickaxe-steel": {"ceramic": 3.25, "stone": 9, "ore": 9, "metal": 9, "ice": 4.25}
+  },
+  "attackpowerbytype": {
+    "*-copper": 1.25,
+    "*-bismuthbronze": 1.5,
+    "*-tinbronze": 1.75,
+    "*-gold": 1.75,
+    "*-silver": 1.75,
+    "*-blackbronze": 2,
+    "*-iron": 2.25,
+    "*-meteoriciron": 2.35,
+    "*-steel": 2.5
+  },
+  "durabilitybytype": {
+    "*-gold": 120,
+    "*-silver": 160,
+    "*-copper": 280,
+    "*-tinbronze": 420,
+    "*-bismuthbronze": 460,
+    "*-blackbronze": 520,
+    "*-iron": 850,
+    "*-meteoriciron": 1100,
+    "*-steel": 2100
+  },
+  "creativeinventory": {"fsmexamples": ["*"]},
+  "fpHandTransform": {
+    "translation": {"x": -0.4, "y": -0.4, "z": 0.6},
+    "rotation": {"x": -41, "y": 6, "z": 85},
+    "origin": {"x": 0.1, "y": 0.5, "z": 0.5},
+    "scale": 2.5
+  },
+  "guiTransform": {
+    "translation": {"x": 0, "y": 0, "z": 0},
+    "rotation": {"x": 107, "y": -58, "z": -16},
+    "origin": {"x": 0.44, "y": 0.3, "z": 0.42},
+    "scale": 1.68
+  },
+  "groundTransform": {
+    "translation": {"x": 0.3, "y": 0.4, "z": -0.2},
+    "rotation": {"x": 0, "y": 0, "z": 0},
+    "origin": {"x": 0.5, "y": 0.45, "z": 0.5},
+    "scale": 3.6
+  },
+  "tpHandTransform": {
+    "translation": {"x": -0.78, "y": -0.53, "z": -0.11},
+    "rotation": {"x": 90, "y": 0, "z": -2},
+    "scale": 0.9
+  }
+}
