@@ -8,7 +8,7 @@
       "properties": {
         "initialState": "initial_state",
         "inputs": [
-          {"code": "Wound up", "class": "Hotkey", "attributes": {"key": "R"}},
+          {"code": "Wind up", "class": "Hotkey", "attributes": {"key": "R"}},
           {"code": "Set off", "class": "Hotkey", "attributes": {"key": "F"}}
         ],
         "systems": [
@@ -39,7 +39,7 @@
               "soundSystem": "sound_system",
               "animations": [
                 {
-                  "code": "wound_up",
+                  "code": "wind_up",
                   "firstVariant": 1,
                   "lastVariant": 3,
                   "duration": 100,
@@ -58,15 +58,14 @@
         ],
         "operations": [
           {
-            "code": "wound_up",
+            "code": "wind_up",
             "class": "Instant",
             "attributes": {
-              "input": ["Wound up"],
-              "inputsToIntercept": [],
+              "input": "Wind up",
               "states": [{"initial": "initial_state", "final": "woundup_state"}],
               "systems": [
                 {"code": "sound_system", "attributes": {"code": "wound_up"}},
-                {"code": "animation_system", "attributes": {"code": "wound_up"}}
+                {"code": "animation_system", "attributes": {"code": "wind_up"}}
               ]
             }
           },
@@ -74,8 +73,7 @@
             "code": "set_off",
             "class": "Instant",
             "attributes": {
-              "input": ["Set off"],
-              "inputsToIntercept": [],
+              "input": "Set off",
               "states": [{"initial": "woundup_state", "final": "initial_state"}],
               "systems": [{"code": "animation_system", "attributes": {"code": "go_off"}}]
             }

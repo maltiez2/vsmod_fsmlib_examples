@@ -8,7 +8,7 @@
       "properties": {
         "initialState": "initial_state",
         "inputs": [
-          {"code": "Wound up", "class": "Hotkey", "attributes": {"key": "R"}},
+          {"code": "Wind up", "class": "Hotkey", "attributes": {"key": "R"}},
           {"code": "Set off", "class": "Hotkey", "attributes": {"key": "F"}}
         ],
         "systems": [
@@ -47,10 +47,10 @@
                   "sounds": []
                 },
                 {
-                  "code": "go_off",
+                  "code": "tick",
                   "firstVariant": 3,
                   "lastVariant": 1,
-                  "duration": 1100,
+                  "duration": 1000,
                   "sounds": [
                     {"variant": 1, "code": "tick"},
                     {"variant": 2, "code": "tick"},
@@ -58,7 +58,7 @@
                   ]
                 },
                 {
-                  "code": "set_off",
+                  "code": "turn_off",
                   "firstVariant": 1,
                   "lastVariant": 1,
                   "duration": 0,
@@ -70,11 +70,10 @@
         ],
         "operations": [
           {
-            "code": "wound_up",
+            "code": "wind_up",
             "class": "Instant",
             "attributes": {
-              "input": ["Wound up"],
-              "inputsToIntercept": [],
+              "input": "Wind up",
               "states": [{"initial": "initial_state", "final": "woundup_state"}],
               "systems": [
                 {"code": "sound_system", "attributes": {"code": "wound_up"}},
@@ -83,18 +82,17 @@
             }
           },
           {
-            "code": "go_off",
+            "code": "start",
             "class": "Delayed",
             "attributes": {
-              "delay_ms": 1000,
-              "inputsToIntercept": [],
-              "inputsToHandle": {"initial": ["Set off"], "cancel": ["Wound up"]},
+              "delay_ms": 2000,
+              "inputsToHandle": {"initial": ["Set off"], "cancel": ["Wind up"]},
               "states": [
                 {"initial": "woundup_state", "cancel": "initial_state", "final": "initial_state"}
               ],
               "systems": {
-                "initial": [{"code": "animation_system", "attributes": {"code": "go_off"}}],
-                "cancel": [{"code": "animation_system", "attributes": {"code": "set_off"}}],
+                "initial": [{"code": "animation_system", "attributes": {"code": "tick"}}],
+                "cancel": [{"code": "animation_system", "attributes": {"code": "turn_off"}}],
                 "final": [{"code": "sound_system", "attributes": {"code": "go_off"}}]
               }
             }

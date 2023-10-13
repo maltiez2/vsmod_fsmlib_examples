@@ -12,9 +12,7 @@
           {"code": "R_up", "class": "Key", "attributes": {"key": "R", "type": "released"}},
           {"code": "Set off", "class": "Hotkey", "attributes": {"key": "F"}},
           {"code": "item_dropped", "class": "ItemDropped", "attributes": {"handle": false}},
-          {"code": "item_dropped_prevent", "class": "ItemDropped", "attributes": {"handle": true}},
-          {"code": "slot_change", "class": "SlotChange", "attributes": {"type": "handle"}},
-          {"code": "slot_change_prevent", "class": "SlotChange", "attributes": {"type": "prevent"}}
+          {"code": "item_dropped_prevent", "class": "ItemDropped", "attributes": {"handle": true}}
         ],
         "systems": [
           {
@@ -52,7 +50,7 @@
                   "sounds": []
                 },
                 {
-                  "code": "go_off",
+                  "code": "tick",
                   "firstVariant": 3,
                   "lastVariant": 1,
                   "duration": 2000,
@@ -75,11 +73,11 @@
         ],
         "operations": [
           {
-            "code": "wound_up",
+            "code": "wind_up",
             "class": "Delayed",
             "attributes": {
               "delay_ms": 2000,
-              "inputsToIntercept": ["item_dropped_prevent", "slot_change_prevent"],
+              "inputsToIntercept": ["item_dropped_prevent"],
               "inputsToHandle": {"initial": ["R_down"], "cancel": ["R_up"]},
               "states": [
                 {"initial": "initial_state", "cancel": "initial_state", "final": "woundup_state"}
@@ -96,13 +94,12 @@
             "class": "Delayed",
             "attributes": {
               "delay_ms": 2000,
-              "inputsToIntercept": [],
-              "inputsToHandle": {"initial": ["Set off"], "cancel": ["item_dropped", "slot_change"]},
+              "inputsToHandle": {"initial": ["Set off"], "cancel": ["item_dropped"]},
               "states": [
                 {"initial": "woundup_state", "cancel": "initial_state", "final": "initial_state"}
               ],
               "systems": {
-                "initial": [{"code": "animation_system", "attributes": {"code": "go_off"}}],
+                "initial": [{"code": "animation_system", "attributes": {"code": "tick"}}],
                 "cancel": [{"code": "animation_system", "attributes": {"code": "set_off"}}],
                 "final": [{"code": "sound_system", "attributes": {"code": "go_off"}}]
               }
